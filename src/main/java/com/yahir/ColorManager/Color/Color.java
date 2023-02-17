@@ -10,6 +10,9 @@ import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Color {
+
+    public Color() {}
+
     @Id
     @SequenceGenerator(
         name = "color_id_sequence",
