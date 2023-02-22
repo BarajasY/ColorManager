@@ -1,0 +1,85 @@
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.secondColumn {
+    width: 40%;
+}
+
+.firstColumn {
+    color: black;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.firstColumn h1 {
+    color: #e73f5e;
+    font-size: 5vw;
+    font-weight: 800;
+    text-align: justify;
+    width: 80%;
+    z-index: 2;
+}
+
+.firstColumn p {
+    color: #223056;
+    font-size: 2.4vw;
+    font-weight: 800;
+    text-align: justify;
+    width: 80%;
+    z-index: 2;
+}
+
+.secondColumn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondColumn button {
+    padding: 20px 30px;
+    border-radius: 20px;
+    font-size: 3vw;
+    font-weight: 800;
+    background: white;
+    color: #223056;
+    border: none;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.secondColumn button:after {
+    position: relative;
+    content: '';
+    width: 0px;
+    height: 4px;
+    background: #e73f5e;
+    display: block;
+    transform: translateX(-50%);
+    transition: .2s;
+}
+
+.secondColumn button:hover:after {
+    width: 50%;
+    transform: translateX(0);
+}
+
+.mainShade {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #efeff3;
+    display: block;
+    z-index: 1;
+    transform: skew(20deg) translateX(40%);
+    transition: .2s;
+}
+
+.mainShade:hover {
+    width: 52%;
+}

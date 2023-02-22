@@ -1,6 +1,7 @@
 package com.yahir.ColorManager;
 
 import java.util.List;
+/* import java.util.Random; */
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -49,5 +50,13 @@ public class ColorManagerApplication {
 		Color.setColor3(request.color3());
 		colorRepository.save(Color);
 	}
+
+	/* @GetMapping("api/v1/random")
+	public Color homeColors() {
+		int total = Math.toIntExact((colorRepository.count()));
+		Random rand = new Random();
+		int randomNumber = rand.nextInt(total);
+		
+	} */
 
 }
