@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    min-width: 100%;
 }
 
 .secondColumn {
@@ -39,6 +40,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .secondColumn button {
@@ -51,6 +53,7 @@
     border: none;
     transition: .2s;
     cursor: pointer;
+    z-index: 2;
 }
 
 .secondColumn button:after {
@@ -76,8 +79,9 @@
     background: #efeff3;
     display: block;
     z-index: 1;
-    transform: skew(20deg) translateX(40%);
+    transform: skew(20deg);
     transition: .2s;
+    filter: blur(20px);
 }
 
 .mainShade:hover {

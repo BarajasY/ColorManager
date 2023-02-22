@@ -1,7 +1,8 @@
 package com.yahir.ColorManager;
 
 import java.util.List;
-/* import java.util.Random; */
+import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,7 @@ import com.yahir.ColorManager.Color.ColorRepository;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin
 @RequestMapping("api/v1/colors")
 public class ColorManagerApplication {
 
@@ -30,7 +32,6 @@ public class ColorManagerApplication {
 		SpringApplication.run(ColorManagerApplication.class, args);
 	}
 
-	@CrossOrigin
 	@GetMapping
 	public List<Color> getColors() {
 		return colorRepository.findAll();
@@ -51,12 +52,23 @@ public class ColorManagerApplication {
 		colorRepository.save(Color);
 	}
 
-	/* @GetMapping("api/v1/random")
-	public Color homeColors() {
+
+	// Creates a random number to retrieve a random row from psql.
+	// The random number will work as the id of said row. The upperbound of the range is the amount of total entries.
+	// In case the random number equals 0, it will instead return 1.
+	public int RandomNumberGenerator() {
 		int total = Math.toIntExact((colorRepository.count()));
 		Random rand = new Random();
-		int randomNumber = rand.nextInt(total);
-		
-	} */
+		int randomNumber = rand.nextInt(total + 1);
+		if (randomNumber == 0) {
+			return randomNumber + 1;
+		}
+		return randomNumber;
+	}
+
+	@GetMapping("/random")
+	public Optional<Color> homeColors() {
+		return colorRepository.findById(RandomNumberGenerator());
+	}
 
 }
