@@ -1,0 +1,15 @@
+.loadingContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingContainer h1 {
+    color: black;
+    font-size: 10vw;
+    font-weight: 800;
+    display: inline-block;
+    position: relative;
+}

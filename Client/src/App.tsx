@@ -1,11 +1,22 @@
+import { Route, Routes } from 'react-router'
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
-import {Main} from './components/Index'
+import { ContextProvider } from './ColorsContext'
+import {Loading, Main, Browse} from './components/Index'
 
 function App() {
 
   return (
     <div className="App">
-      <Main/>
+      <ContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Loading/>} />
+          <Route path='/home' element={<Main/>} />
+          <Route path='/home/browse' element={<Browse/>} />
+        </Routes>
+      </BrowserRouter>
+      </ContextProvider>
     </div>
   )
 }
