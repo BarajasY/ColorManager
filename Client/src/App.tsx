@@ -14,11 +14,12 @@ function App() {
         <Routes>
           <Route path='/' element={<Loading/>} />
           <Route path='/home' element={<Main/>} />
+          <Route path='/home/browse' element={<><Navbar/> <Browse/></>} />
         </Routes>
+      </BrowserRouter>
       {/* Introduced Navbar only after Main, this way we do not break the scenario. */}
-      <Navbar/>
+      <BrowserRouter>
         <Routes>
-          <Route path='/home/browse' element={<Browse/>} />
         </Routes>
       </BrowserRouter>
       </ContextProvider>

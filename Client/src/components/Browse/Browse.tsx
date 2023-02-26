@@ -12,9 +12,15 @@ const Browse = () => {
       <div className="content">
         {AllColors.map((color) => (
           <div className="colorsContainer" key={color.id}>
-              <div className="colors" style={{background: color.color1}}></div>
-              <div className="colors" style={{background: color.color2}}></div>
-              <div className="colors" style={{background: color.color3}}></div>
+              <div className="colors" style={{background: color.color1}}>
+                <p style={{color: color.color3}}>{color.color1}</p>
+              </div>
+              <div className="colors" style={{background: color.color2}}>
+                <p style={{color: color.color1}}>{color.color2}</p>
+              </div>
+              <div className="colors" style={{background: color.color3}}>
+                <p style={{color: color.color2}}>{color.color3}</p>
+              </div>
             </div>
         ))}
         </div>

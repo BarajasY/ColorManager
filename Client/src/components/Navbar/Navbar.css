@@ -2,6 +2,8 @@
     width: 100vw;
     height: 70px;
     display: flex;
+    background: rgba(231, 231, 231, 0.8);
+    min-width: 100%;
 }
 
 .navbarLogo {
@@ -12,15 +14,33 @@
 
 .navbarLogo h1 {
     transform: translateX(20%);
-    font-weight: 300;
+    font-weight: 800;
 }
 
 .navbarButtons {
     display: flex;
-    width: 20%;
+    width: 30%;
     justify-content: center;
+    align-items: center;
 }
 
 .navbarButtons button {
-    
+    padding: 10px;
+    height: fit-content;
+    margin: 10px;
+    background: none;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.navbarButtons button a {
+    color: black;
+}
+
+.navbarButtons button:hover {
+    border: 2px solid black;
+    cursor: pointer;
 }
