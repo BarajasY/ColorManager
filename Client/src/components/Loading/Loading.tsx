@@ -1,19 +1,19 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../../ColorsContext';
-import { getRandomColors, RandomColors } from '../../types';
+import { getAllColors, getRandomColors, RandomColors } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import './Loading.css'
 
 const Loading = () => {
 
     const navigate = useNavigate();
-    const {getRandomColors} = useContext(Context) as getRandomColors
+    const {getAllColors} = useContext(Context) as getAllColors
 
 
     useEffect(() => {
         setTimeout(() => {
-            getRandomColors()
+            getAllColors()
         }, 1000);
         setTimeout(() => {
             navigate('./home')

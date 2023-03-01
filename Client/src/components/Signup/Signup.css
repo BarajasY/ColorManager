@@ -1,0 +1,94 @@
+.signupContainer {
+    width: 100%;
+    height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signupContent {
+    display: flex;
+    border-radius: 20px;
+    padding: 20px;
+    flex-direction: column;
+}
+
+#signupHeader {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+#signupHeader span a {
+    transform: translateX(20%);
+    font-weight: 800;
+    font-size: 50px;
+    font-family: 'Tilt Warp', cursive;
+    text-shadow: 2px 0px 2px transparent, -2px 0px 2px transparent, 0px 2px 2px transparent, 0px -2px 2px transparent;
+}
+
+#signupHeader span a {
+    color: var(--colorb12);
+    transition: .2s;
+}
+
+#signupHeader span a:hover {
+    text-shadow: 2px 0px 2px var(--colorb12), -2px 0px 2px var(--colorb12), 0px 2px 2px var(--colorb12), 0px -2px 2px var(--colorb12);
+    color: var(--colorb1);
+}
+
+.signupForm h1 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--colorb12);
+    background: var(--colorb1);
+    width: fit-content;
+    padding: 5px 10px;
+    transition: .2s;
+    font-family: 'Tilt Warp';
+}
+
+.Focused {
+    transform: translate(20px, 20px);
+}
+
+.NotFocused {
+    transform: translate(-10px, 0px);
+}
+
+.signupForm input {
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    border: 2px solid var(--colorb12);
+    font-size: 25px;
+    font-weight: 800;
+    outline: none;
+    color: var(--colorb12);
+}
+
+.signupButtonContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.signupButtonContainer button {
+    padding: 10px 20px;
+    background: var(--colorb1);
+    border: 2px solid var(--colorb12);
+    font-size: 30px;
+    border-radius: 10px;
+    font-family: 'Tilt Warp';
+    color: var(--colorb12);
+    transition: .2s;
+}
+
+.signupButtonContainer button:hover {
+    color: var(--colorb1);
+    background: var(--colorb12);
+    cursor: pointer;
+}

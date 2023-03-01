@@ -7,11 +7,11 @@ const Navbar = () => {
   return (
     <motion.div className="navbarContainer" initial={{y: -70}} animate={{y:0}}>
       <div className="navbarLogo">
-        <h1>ColorManager</h1>
+        <h1><Link to="/home">ColorManager</Link></h1>
       </div>
       <div className="navbarButtons">
         <button><Link to="./login">Login</Link></button>
-        <button><Link to="./signup">Signup</Link></button>
+        <button id="Signup"><Link to="/signup">Signup</Link></button>
       </div>
     </motion.div>
   )
