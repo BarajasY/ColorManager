@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import org.apache.catalina.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yahir.ColorManager.Color.Color;
 import com.yahir.ColorManager.Color.ColorRepository;
+import com.yahir.ColorManager.Users.Users;
+import com.yahir.ColorManager.Users.UsersRepository;
 
 @SpringBootApplication
 @RestController
@@ -23,9 +26,11 @@ import com.yahir.ColorManager.Color.ColorRepository;
 public class ColorManagerApplication {
 
 	private final ColorRepository colorRepository;
+	private final UsersRepository userRepository;
 
-	public ColorManagerApplication(ColorRepository colorRepository) {
+	public ColorManagerApplication(ColorRepository colorRepository, UsersRepository userRepository) {
 		this.colorRepository = colorRepository;
+		this.userRepository = userRepository;
 	}
 
 	public static void main(String[] args) {
@@ -37,11 +42,22 @@ public class ColorManagerApplication {
 		return colorRepository.findAll();
 	}
 
+	@GetMapping("/users")
+	public List<Users> getUsers() {
+		return userRepository.findAll();
+	}
+
 	record NewColorRequest(
 		String color1,
 		String color2,
 		String color3
 	) {}
+
+	record NewUserRequest(
+		String email,
+		String password,
+		String role
+	) {} 
 
 	@PostMapping
 	public void createColors(@RequestBody NewColorRequest request) {
@@ -52,6 +68,14 @@ public class ColorManagerApplication {
 		colorRepository.save(Color);
 	}
 
+	@PostMapping("/users")
+	public void createUser(@RequestBody NewUserRequest request) {
+		Users Users = new Users();
+		Users.setEmail(request.email());
+		Users.setPassword(request.password());
+		Users.setRole(request.role());
+		userRepository.save(Users);
+	}
 
 	// Creates a random number to retrieve a random row from psql.
 	// The random number will work as the id of said row. The upperbound of the range is the amount of total entries.

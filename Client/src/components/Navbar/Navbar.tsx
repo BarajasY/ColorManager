@@ -10,7 +10,7 @@ const Navbar = () => {
         <h1><Link to="/home">ColorManager</Link></h1>
       </div>
       <div className="navbarButtons">
-        <button><Link to="./login">Login</Link></button>
+        <button><Link to="/login">Login</Link></button>
         <button id="Signup"><Link to="/signup">Signup</Link></button>
       </div>
     </motion.div>
