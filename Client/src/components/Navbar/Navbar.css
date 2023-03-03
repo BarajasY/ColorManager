@@ -62,3 +62,8 @@
     background: var(--colorb5);
     color: var(--colorb12);
 }
+
+#Signup:hover {
+    background: var(--colorb12);
+    color: var(--colorb1);
+}

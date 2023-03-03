@@ -60,7 +60,7 @@
 .signupForm input {
     border-radius: 15px;
     padding: 30px;
-    width: 100%;
+    width: 90%;
     border: 2px solid var(--colorb12);
     font-size: 25px;
     font-weight: 800;
@@ -91,4 +91,25 @@
     color: var(--colorb1);
     background: var(--colorb12);
     cursor: pointer;
+}
+
+#CompletedSignupH1 {
+    color: var(--colorb12);
+    font-family: 'Tilt Warp';
+    font-size: 50px;
+    text-align: center;
+}
+
+#CompletedSignupP, #CompletedSignupP a {
+    color: var(--colorb10);
+    font-family: 'Tilt Warp';
+    font-size: 25px;
+    text-align: center;
+}
+
+#CompletedSignupP a {
+    color: var(--suplementarycolor);
+    transition: .2s;
+    margin: 5px;
+    width: fit-content;
 }

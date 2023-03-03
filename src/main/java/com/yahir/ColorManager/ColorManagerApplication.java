@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import org.apache.catalina.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,11 +36,13 @@ public class ColorManagerApplication {
 		SpringApplication.run(ColorManagerApplication.class, args);
 	}
 
+	//Returns all colors present in the database.
 	@GetMapping
 	public List<Color> getColors() {
 		return colorRepository.findAll();
 	}
 
+	//Returns all users in the database.
 	@GetMapping("/users")
 	public List<Users> getUsers() {
 		return userRepository.findAll();
@@ -59,6 +60,12 @@ public class ColorManagerApplication {
 		String role
 	) {} 
 
+	record NewLoginRequest(
+		String email,
+		String password
+	){}
+
+	//Receives a post method to add a color to the database.
 	@PostMapping
 	public void createColors(@RequestBody NewColorRequest request) {
 		Color Color = new Color();
@@ -68,15 +75,7 @@ public class ColorManagerApplication {
 		colorRepository.save(Color);
 	}
 
-	@PostMapping("/users")
-	public void createUser(@RequestBody NewUserRequest request) {
-		Users Users = new Users();
-		Users.setEmail(request.email());
-		Users.setPassword(request.password());
-		Users.setRole(request.role());
-		userRepository.save(Users);
-	}
-
+	
 	// Creates a random number to retrieve a random row from psql.
 	// The random number will work as the id of said row. The upperbound of the range is the amount of total entries.
 	// In case the random number equals 0, it will instead return 1.
@@ -89,10 +88,29 @@ public class ColorManagerApplication {
 		}
 		return randomNumber;
 	}
-
+	
+	//Returns a random color from the datbase
+	//Function currently not used at all.
 	@GetMapping("/random")
 	public Optional<Color> homeColors() {
 		return colorRepository.findById(RandomNumberGenerator());
 	}
 
+	//Receives a post method to add a user to the database.
+	@PostMapping("/users/signup")
+	public void createUser(@RequestBody NewUserRequest request) {
+		Users Users = new Users();
+		Users.setEmail(request.email());
+		Users.setPassword(request.password());
+		Users.setRole(request.role());
+		userRepository.save(Users);
+	}
+
+	//Receives record "NewLoginRequest", finds the user via email, and verifies if password is correct.
+	@PostMapping("/users/login")
+	public Users findUser(@RequestBody NewLoginRequest request) {
+		Users Users = userRepository.findByEmail(request.email());
+		return Users;
+	}
+	
 }

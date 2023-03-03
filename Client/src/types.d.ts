@@ -20,6 +20,6 @@ export interface ChildrenInterface {
     children: ReactNode
 }
 
-export type getRandomColors = {getRandomColors: () => void}
-export type RandomColors = {RandomColors: Color}
 export type getAllColors = {getAllColors: () => void}
+export type setLoggedIn = {setLoggedIn: (boolean) => void}
+export type LoggedIn = {LoggedIn: boolean}
