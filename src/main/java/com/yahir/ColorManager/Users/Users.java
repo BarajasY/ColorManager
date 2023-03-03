@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.Objects;
 import jakarta.persistence.SequenceGenerator;
 
 @Entity
@@ -31,6 +32,23 @@ public class Users {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof Users)) {
+            return false;
+        }
+        Users users = (Users) o;
+        return Objects.equals(id, users.id) && Objects.equals(email, users.email) && Objects.equals(password, users.password) && Objects.equals(role, users.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, password, role);
     }
 
     public Integer getId() {

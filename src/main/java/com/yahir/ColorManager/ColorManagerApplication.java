@@ -6,6 +6,8 @@ import java.util.Random;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -108,9 +110,21 @@ public class ColorManagerApplication {
 
 	//Receives record "NewLoginRequest", finds the user via email, and verifies if password is correct.
 	@PostMapping("/users/login")
-	public Users findUser(@RequestBody NewLoginRequest request) {
+	public Object findUser(@RequestBody NewLoginRequest request) {
 		Users Users = userRepository.findByEmail(request.email());
-		return Users;
+		String Password = Users.getPassword();
+		if(Password.equals(request.password())) {
+			return Users;
+		} else {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
+		
+	}
+
+	@PostMapping("/hashcode")
+	public Integer HashCodeTest(@RequestBody NewLoginRequest request) {
+		String Test = request.email() + request.password();
+		return Test.hashCode();
 	}
 	
 }

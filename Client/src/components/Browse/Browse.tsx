@@ -11,7 +11,6 @@ const Browse = () => {
     <div className="browseContainer">
       <div className="content">
         {AllColors.map((color) => (
-          <>
           <div className="colorsContainer" key={color.id}>
               <div className="colors" style={{background: color.color1}}>
                 <p /* style={{color: color.color3}} */>{color.color1}</p>
@@ -23,7 +22,6 @@ const Browse = () => {
                 <p /* style={{color: color.color2}} */>{color.color3}</p>
               </div>
             </div>
-          </>
         ))}
         </div>
     </div>

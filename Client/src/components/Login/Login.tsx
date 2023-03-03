@@ -9,10 +9,7 @@ const Login = () => {
   const [EmailFocus, setEmailFocus] = useState(false)
   const [PassFocus, setPassFocus] = useState(false)
   const [EmailValue, setEmailValue] = useState('')
-  const [ResponseData, setResponseData] = useState({
-    'email': '',
-    'password': ''
-  })
+  const [StatusCheck, setStatusCheck] = useState(false)
   const [PassValue, setPassValue] = useState('')
   const [ErrorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
@@ -34,7 +31,7 @@ const Login = () => {
       if(EmailValue.includes('@')) {
           SendData();
           setErrorMessage('')
-          LoggingIn();
+          /* LoggingIn(); */
       } else {
           // If email doesn't have an @.
           setErrorMessage("Introduce a proper email format.")
@@ -53,20 +50,22 @@ const Login = () => {
       },
       body: JSON.stringify({
         email: EmailValue,
-        pass: PassValue
+        password: PassValue
       })
     })
-    .then(response => response.json())
-    .then(json => setResponseData(json))
+    .then(response => {
+      console.clear()
+      if(response.status === 200) {
+          LoggingIn()
+      } else {
+        setErrorMessage("Incorrect Password")
+      }
+    })
   }
 
   const LoggingIn = () => {
-    if(ResponseData.password === PassValue) {
       setLoggedIn(true)
       navigate('/home')
-    } else {
-      setErrorMessage("Incorrect password")
-    }
   }
 
   return (

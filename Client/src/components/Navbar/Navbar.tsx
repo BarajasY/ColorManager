@@ -22,11 +22,11 @@ const Navbar = () => {
       <div className="navbarButtons">
         {LoggedIn 
         ?
-          <button onClick={() => SignOut()}>Log off</button> 
+          <motion.button initial={{opacity:0}} whileInView={{opacity: 1}} onClick={() => SignOut()}>Log off</motion.button> 
         :
         <>
-          <button><Link to="/login">Login</Link></button>
-          <button id="Signup"><Link to="/signup">Signup</Link></button>
+          <motion.button initial={{opacity:0}} whileInView={{opacity: 1}} ><Link to="/login">Login</Link></motion.button>
+          <motion.button initial={{opacity:0}} whileInView={{opacity: 1}}  id="Signup"><Link to="/signup">Signup</Link></motion.button>
         </>
         }
       </div>
