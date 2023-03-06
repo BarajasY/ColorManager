@@ -98,16 +98,24 @@ public class ColorManagerApplication {
 		return colorRepository.findById(RandomNumberGenerator());
 	}
 
-	//Receives a post method to add a user to the database.
+	// Signup function
+	//Receives a post method to add a user to the database. Then we verify if a user with the same email is already present
 	@PostMapping("/users/signup")
-	public void createUser(@RequestBody NewUserRequest request) {
+	public Object createUser(@RequestBody NewUserRequest request) {
+		Users CheckUser = userRepository.findByEmail(request.email());
 		Users Users = new Users();
 		Users.setEmail(request.email());
 		Users.setPassword(request.password());
 		Users.setRole(request.role());
-		userRepository.save(Users);
+		if(CheckUser.equals(Users)) {
+			userRepository.save(Users);
+			return new ResponseEntity<>(HttpStatus.ACCEPTED);
+		} else {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}
 	}
 
+	// Login function.
 	//Receives record "NewLoginRequest", finds the user via email, and verifies if password is correct.
 	@PostMapping("/users/login")
 	public Object findUser(@RequestBody NewLoginRequest request) {
@@ -121,6 +129,7 @@ public class ColorManagerApplication {
 		
 	}
 
+	// Testing Hashcode functions.
 	@PostMapping("/hashcode")
 	public Integer HashCodeTest(@RequestBody NewLoginRequest request) {
 		String Test = request.email() + request.password();

@@ -28,8 +28,6 @@ const Signup = () => {
             // If Email includes an @ send data.
             if(EmailValue.includes('@')) {
                 SendData();
-                setErrorMessage('')
-                setCompleteSignup(true)
             } else {
                 // If email doesn't have an @.
                 setErrorMessage("Introduce a proper email format.")
@@ -51,6 +49,15 @@ const Signup = () => {
                 password: PassValue,
                 role: 'user'
             })
+        })
+        .then(response => {
+            console.clear();
+            if(response.status === 202) {
+                setErrorMessage('')
+                setCompleteSignup(true)
+            } else {
+                setErrorMessage('Email has already been used.')
+            }
         })
     }
 
