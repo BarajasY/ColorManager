@@ -13,7 +13,8 @@ export interface Color {
     id?: number,
     color1?: string,
     color2?: string,
-    color3?: string
+    color3?: string,
+    creator?: string
 }
 
 export interface ChildrenInterface {

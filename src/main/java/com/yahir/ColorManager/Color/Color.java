@@ -27,6 +27,15 @@ public class Color {
     private String color1;
     private String color2;
     private String color3;
+    private String creator;
+
+    public String getCreator() {
+        return this.creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
 
     @Override
     public String toString() {
@@ -50,15 +59,16 @@ public class Color {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode() { 
         return Objects.hash(id, color1, color2, color3);
     }
 
-    public Color(Integer id, String color1, String color2, String color3) {
+    public Color(Integer id, String color1, String color2, String color3, String creator) {
         this.id = id;
         this.color1 = color1;
         this.color2 = color2;
         this.color3 = color3;
+        this.creator = creator;
     }
 
     public Integer getId() {

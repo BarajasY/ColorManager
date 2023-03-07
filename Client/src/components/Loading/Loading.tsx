@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../../ColorsContext';
-import { getAllColors, getRandomColors, RandomColors } from '../../types';
+import { getAllColors } from '../../types';
 import { useNavigate } from 'react-router-dom';
 import './Loading.css'
 
@@ -24,10 +24,13 @@ const Loading = () => {
   return (
     <div className="loadingContainer">
         <motion.section>
-            <motion.h1 initial={{y: -100, opacity: 0}} whileInView={{y: 0, opacity: 1}} transition={{duration: 2}}>Y</motion.h1>
+            <motion.h1 
+            initial={{y: -100, opacity: 0}} 
+            whileInView={{y: 0, opacity: 1}} 
+            transition={{duration: 2}} style={{color: 'var(--suplementarycolor)'}}>Y</motion.h1>
         </motion.section>
         <motion.section>
-            <motion.h1 initial={{y: 100, opacity: 0}} whileInView={{y: 0, opacity: 1}} transition={{duration: 2}}>M</motion.h1>
+            <motion.h1 initial={{y: 100, opacity: 0}} whileInView={{y: 0, opacity: 1}} transition={{duration: 2}} style={{color: 'var(--colorb12)'}}>M</motion.h1>
         </motion.section>
     </div>
   )

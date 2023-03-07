@@ -24,7 +24,6 @@ const Main = () => {
         <div className="secondColumn">
             <motion.button animate={{opacity: 1, y:0}} initial={{opacity: 0, y:-30}}><Link to='./browse'>Start</Link></motion.button>
         </div>
-{/*         <div className="mainShade"></div> */}
         <div className="randomColoredSquares">
           <motion.div className="square" initial={{opacity: 0}} animate={{opacity:1}} transition={{delay: .5}} style={{background: RandomColors.color1}}></motion.div>
           <motion.div className="square" initial={{opacity: 0}} animate={{opacity:1}} transition={{delay: 1}} style={{background: RandomColors.color2}}></motion.div>

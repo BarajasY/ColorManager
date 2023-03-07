@@ -16,18 +16,18 @@
     transform: translateX(20%);
     font-weight: 800;
     font-size: 30px;
-    font-family: 'Tilt Warp', cursive;
+    font-family: 'Tilt Warp';
     transition: .2s;
     text-shadow: 2px 0px 2px transparent, -2px 0px 2px transparent, 0px 2px 2px transparent, 0px -2px 2px transparent;
 }
 
 .navbarLogo h1 a {
-    color: black;
+    color: var(--suplementarycolor);
     transition: .2s;
 }
 
 .navbarLogo h1 a:hover {
-    text-shadow: 2px 0px 2px black, -2px 0px 2px black, 0px 2px 2px black, 0px -2px 2px black;
+    text-shadow: 2px 0px 2px var(--suplementarycolor), -2px 0px 2px var(--suplementarycolor), 0px 2px 2px var(--suplementarycolor), 0px -2px 2px var(--suplementarycolor);
     color: rgb(236,236,236)
 }
 

@@ -53,13 +53,15 @@ public class ColorManagerApplication {
 	record NewColorRequest(
 		String color1,
 		String color2,
-		String color3
+		String color3,
+		String creator
 	) {}
 
 	record NewUserRequest(
 		String email,
 		String password,
-		String role
+		String role,
+		String username
 	) {} 
 
 	record NewLoginRequest(
@@ -74,6 +76,7 @@ public class ColorManagerApplication {
 		Color.setColor1(request.color1());
 		Color.setColor2(request.color2());
 		Color.setColor3(request.color3());
+		Color.setCreator(request.creator());
 		colorRepository.save(Color);
 	}
 
@@ -99,20 +102,21 @@ public class ColorManagerApplication {
 	}
 
 	// Signup function
-	//Receives a post method to add a user to the database. Then we verify if a user with the same email is already present
+	//Receives a post method to add a user to the database.
+	//We verify if the user email already exists in our db via existsByEmail example function.
 	@PostMapping("/users/signup")
 	public Object createUser(@RequestBody NewUserRequest request) {
-		Users CheckUser = userRepository.findByEmail(request.email());
-		Users Users = new Users();
-		Users.setEmail(request.email());
-		Users.setPassword(request.password());
-		Users.setRole(request.role());
-		if(CheckUser.equals(Users)) {
+		boolean UserExists = userRepository.existsByEmail(request.email());
+		if(!UserExists) {
+			Users Users = new Users();
+			Users.setEmail(request.email());
+			Users.setPassword(request.password());
+			Users.setRole(request.role());
+			Users.setUsername(request.username());
 			userRepository.save(Users);
-			return new ResponseEntity<>(HttpStatus.ACCEPTED);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.OK);
 		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 
 	// Login function.
@@ -124,7 +128,7 @@ public class ColorManagerApplication {
 		if(Password.equals(request.password())) {
 			return Users;
 		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
 	}

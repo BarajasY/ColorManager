@@ -25,15 +25,24 @@ public class Users {
     private Integer id;
     private String email;
     private String password;
+    private String username;
     private String role;
 
-    public Users(Integer id, String email, String password, String role) {
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Users(Integer id, String email, String password, String role, String username) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.username = username;
     }
-
 
     @Override
     public boolean equals(Object o) {
