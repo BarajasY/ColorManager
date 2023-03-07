@@ -49,21 +49,29 @@
     transition: .2s;
 }
 
-.navbarButtons button a {
-    color: black;
-}
-
 .navbarButtons button:hover {
     border: 2px solid black;
     cursor: pointer;
 }
 
+#Login {
+    background: none;
+}
+
+#Login a {
+    color: black;
+}
+
 #Signup {
-    background: var(--colorb5);
+    background: var(--colorb12);
     color: var(--colorb12);
 }
 
+#Signup a {
+    color: var(--colorb2);
+}
+
 #Signup:hover {
-    background: var(--colorb12);
+    background: var(--suplementarycolor);
     color: var(--colorb1);
 }

@@ -13,16 +13,9 @@ const Browse = () => {
         {AllColors.map((color) => (
           <div className="colorsWrapper">
             <h1>{color.creator}</h1>
-            <div className="colorsContainer" key={color.id}>
-                <div className="colors" style={{background: color.color1}}>
-                  <p /* style={{color: color.color3}} */>{color.color1}</p>
-                </div>
-                <div className="colors" style={{background: color.color2}}>
-                  <p /* style={{color: color.color1}} */>{color.color2}</p>
-                </div>
-                <div className="colors" style={{background: color.color3}}>
-                  <p /* style={{color: color.color2}} */>{color.color3}</p>
-                </div>
+            <div className="colorsContainer" key={color.id} style={{background:color.color1}}>
+                <div className="colorCircle" style={{background:color.color2}}></div>
+                <h1 style={{color: color.color3}}>ColorManager</h1>
             </div>
           </div>
         ))}
