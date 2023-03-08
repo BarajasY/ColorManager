@@ -41,6 +41,7 @@
 .navbarButtons button {
     padding: 10px;
     height: fit-content;
+    width: 100px;
     margin: 10px;
     border: 2px solid transparent;
     border-radius: 15px;
@@ -50,16 +51,80 @@
 }
 
 .navbarButtons button:hover {
-    border: 2px solid black;
     cursor: pointer;
+}
+
+.Username {
+    color: var(--suplementarycolor);
+    font-family: 'Tilt Warp';
+    font-weight: 500;
+    font-size: 25px;
+    margin-right: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Username:after {
+    position: relative;
+    display: block;
+    content: '';
+    width: 0px;
+    height: 2px;
+    background: var(--suplementarycolor);
+    transition: .2s;
+}
+
+.Username:hover:after {
+    width: 100%;
+}
+
+.navbarAdd {
+    background: var(--suplementarycolor);
+    color: var(--colorb1);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    transition: .2s;
+}
+
+.navbarAdd:hover {
+    border: 2px solid var(--colorb5);
+}
+
+.AddIcon {
+    color: var(--colorb12);
+    background: var(--colorb1);
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.Logout {
+    background: var(--errorcolor);
+    color: var(--colorb1);
+    transition: .2s;
+}
+
+.Logout:hover {
+    filter: brightness(90%);
 }
 
 #Login {
     background: none;
+    border: 2px solid transparent;
+    transition: .2s;
 }
 
 #Login a {
     color: black;
+    font-family: 'Tilt Warp';
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#Login:hover {
+    border: 2px solid black;
 }
 
 #Signup {

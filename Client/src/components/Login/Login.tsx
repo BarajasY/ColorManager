@@ -1,15 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../ColorsContext';
-import { setLoggedIn } from '../../types';
+import { setLoggedIn, setUser, UserInterface, UserType } from '../../types';
 import './Login.css';
 
 const Login = () => {
   const {setLoggedIn} = useContext(Context) as setLoggedIn
+  const {setUser} = useContext(Context) as setUser
+
   const [EmailFocus, setEmailFocus] = useState(false)
   const [PassFocus, setPassFocus] = useState(false)
   const [EmailValue, setEmailValue] = useState('')
-  const [StatusCheck, setStatusCheck] = useState(false)
   const [PassValue, setPassValue] = useState('')
   const [ErrorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
@@ -31,7 +32,6 @@ const Login = () => {
       if(EmailValue.includes('@')) {
           SendData();
           setErrorMessage('')
-          /* LoggingIn(); */
       } else {
           // If email doesn't have an @.
           setErrorMessage("Introduce a proper email format.")
@@ -53,17 +53,17 @@ const Login = () => {
         password: PassValue
       })
     })
-    .then(response => {
-      console.clear()
-      if(response.status === 200) {
-          LoggingIn()
-      } else {
-        setErrorMessage("Incorrect Password")
-      }
-    })
+    if(post.status === 200) {
+      post.json().then(r => {
+        LoggingIn(r)
+      })
+    } else {
+      setErrorMessage("Incorrect Password")
+    }
   }
 
-  const LoggingIn = () => {
+  const LoggingIn = (r:UserType) => {
+      setUser(r)
       setLoggedIn(true)
       navigate('/home')
   }

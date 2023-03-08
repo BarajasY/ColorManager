@@ -21,6 +21,19 @@ export interface ChildrenInterface {
     children: ReactNode
 }
 
+export interface UserInterface {
+    User: UserType
+}
+
+export type UserType = {
+    id: Number,
+    email: String,
+    password: String,
+    username: String,
+    role: String
+}
+
+export type setUser = {setUser: (r:UserType) => void}
 export type getAllColors = {getAllColors: () => void}
 export type setLoggedIn = {setLoggedIn: (boolean) => void}
 export type LoggedIn = {LoggedIn: boolean}

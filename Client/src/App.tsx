@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
 import './App.css'
 import { ContextProvider } from './ColorsContext'
-import {Loading, Main, Browse, Navbar, Signup, Login} from './components/Index'
+import {Loading, Browse, Navbar, Signup, Login, AddColor} from './components/Index'
 
 function App() {
 
@@ -12,10 +12,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Loading/>} />
-{/*           <Route path='/home' element={<Main/>} /> */}
           <Route path='/home' element={<><Navbar/> <Browse/></>} />
           <Route path='/signup' element={<><Navbar/> <Signup/></>} />
           <Route path='/login' element={<><Navbar/> <Login/></>} />
+          <Route path='/create' element={<><Navbar/> <AddColor/></>} />
         </Routes>
       </BrowserRouter>
       </ContextProvider>

@@ -6,6 +6,7 @@ export const Context = createContext({});
 export const ContextProvider = ({children}: ChildrenInterface) => {
     const [RandomColors, setRandomColors] = useState()
     const [LoggedIn, setLoggedIn] = useState(false)
+    const [User, setUser] = useState({})
 
     const getRandomColors = async() => {
         const data = await fetch("http://localhost:8080/api/v1/colors/random");
@@ -25,7 +26,7 @@ export const ContextProvider = ({children}: ChildrenInterface) => {
     }
 
     return (
-        <Context.Provider value={{getRandomColors, RandomColors, getAllColors, LoggedIn, setLoggedIn}}>
+        <Context.Provider value={{getRandomColors, RandomColors, getAllColors, LoggedIn, setLoggedIn, User, setUser}}>
             {children}
         </Context.Provider>
     )
