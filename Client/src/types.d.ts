@@ -9,7 +9,11 @@ export interface RandomColorsInterface {
     color3?: string
 }
 
-export interface Color {
+export interface Colors {
+    Colors: Color[]
+}
+
+export type Color = {
     id?: number,
     color1?: string,
     color2?: string,

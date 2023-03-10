@@ -32,11 +32,18 @@
     width: 30%;
     height: 80%;
     border-radius: 15px;
-    border: 2px solid black;
+    border: 2px solid white;
     margin: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: end;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.addInputSpace:hover {
+    filter: brightness(80%);
 }
 
 .addInputSpace input {
@@ -44,6 +51,12 @@
     border-radius: 15px;
     outline: none;
     background: white;
+    transition: .2s;
+}
+
+
+.addInputSpace input:hover {
+    background: red;
 }
 
 .addPreview {
@@ -53,6 +66,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .2s;
+}
+
+.addPreview:hover {
+    transform: translateY(-10px);
 }
 
 .addCircle {

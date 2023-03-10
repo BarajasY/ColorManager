@@ -1,20 +1,14 @@
 import { motion } from 'framer-motion';
-import React, { useContext, useEffect } from 'react';
-import { Context } from '../../ColorsContext';
-import { getAllColors } from '../../types';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Loading.css'
 
 const Loading = () => {
 
     const navigate = useNavigate();
-    const {getAllColors} = useContext(Context) as getAllColors
 
 
     useEffect(() => {
-        setTimeout(() => {
-            getAllColors()
-        }, 1000);
         setTimeout(() => {
             navigate('./home')
         }, 2000);

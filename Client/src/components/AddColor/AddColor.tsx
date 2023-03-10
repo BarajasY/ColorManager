@@ -5,9 +5,9 @@ import { LoggedIn, UserInterface } from '../../types';
 import './AddColor.css';
 
 const AddColor = () => {
-  const [Color1, setColor1] = useState('');
-  const [Color2, setColor2] = useState('')
-  const [Color3, setColor3] = useState('')
+  const [Color1, setColor1] = useState('#FFFFFF');
+  const [Color2, setColor2] = useState('#FFFFFF')
+  const [Color3, setColor3] = useState('#FFFFFF')
     const {LoggedIn} = useContext(Context) as LoggedIn
     const {User} = useContext(Context) as UserInterface
     const navigate = useNavigate();
@@ -32,6 +32,7 @@ const AddColor = () => {
           creator: User.username
         })
       })
+      navigate('/home')
     }
 
 
@@ -39,15 +40,9 @@ const AddColor = () => {
     <div className="addContainer">
         <h1>Add the <span>color palette</span> you prefer to our site</h1>
         <div className="addContent">
-            <div className="addInputSpace" style={{background:Color1}}>
-                <input type="color" onChange={(e) => setColor1(e.target.value)}/>
-            </div>
-            <div className="addInputSpace" style={{background:Color2}}>
-                <input type="color" onChange={(e) => setColor2(e.target.value)}/>
-            </div>
-            <div className="addInputSpace" style={{background:Color3}}>
-                <input type="color" onChange={(e) => setColor3(e.target.value)} />
-            </div>
+                <input type="color" className="addInputSpace" value={Color1} onChange={(e) => setColor1(e.target.value)}/>
+                <input type="color" className="addInputSpace" value={Color2} onChange={(e) => setColor2(e.target.value)}/>
+                <input type="color" className="addInputSpace" value={Color3} onChange={(e) => setColor3(e.target.value)} />
         </div>
         <section>
           <div className="addPreview" style={{background: Color1}}>

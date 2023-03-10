@@ -1,23 +1,30 @@
 import React, { useContext, useEffect } from 'react';
 import './Browse.css'
 import { Context } from '../../ColorsContext';
-import { Color } from '../../types';
+import { Color, Colors, getAllColors } from '../../types';
+import { motion } from 'framer-motion';
 
 const Browse = () => {
-    const UnparsedRColors = sessionStorage.getItem("all")
-    const AllColors: Color[] = JSON.parse(UnparsedRColors!);
+    const {getAllColors} = useContext(Context) as getAllColors
+    const {Colors} = useContext(Context) as Colors
+
+
+    useEffect(() => {
+      getAllColors();
+    }, [])
+    
 
   return (
     <div className="browseContainer">
       <div className="content">
-        {AllColors.map((color) => (
-          <div className="colorsWrapper">
+        {Colors.map((color) => (
+          <motion.div className="colorsWrapper" initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{delay: .05*color.id!}}>
             <h1>{color.creator}</h1>
             <div className="colorsContainer" key={color.id} style={{background:color.color1}}>
                 <div className="colorCircle" style={{background:color.color2}}></div>
                 <h1 style={{color: color.color3}}>ColorManager</h1>
             </div>
-          </div>
+          </motion.div>
         ))}
         </div>
     </div>
