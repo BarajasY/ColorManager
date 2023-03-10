@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../ColorsContext';
-import { LoggedIn, UserInterface } from '../../types';
+import { getAllColors, LoggedIn, UserInterface } from '../../types';
 import './AddColor.css';
 
 const AddColor = () => {
+  const {LoggedIn} = useContext(Context) as LoggedIn
+  const {User} = useContext(Context) as UserInterface
+  const {getAllColors} = useContext(Context) as getAllColors
+
   const [Color1, setColor1] = useState('#FFFFFF');
   const [Color2, setColor2] = useState('#FFFFFF')
   const [Color3, setColor3] = useState('#FFFFFF')
-    const {LoggedIn} = useContext(Context) as LoggedIn
-    const {User} = useContext(Context) as UserInterface
     const navigate = useNavigate();
 
     //Redirect user in case they try to directly access '/create' url and are not logged in.
@@ -32,6 +34,7 @@ const AddColor = () => {
           creator: User.username
         })
       })
+      getAllColors()
       navigate('/home')
     }
 

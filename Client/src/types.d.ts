@@ -41,3 +41,4 @@ export type setUser = {setUser: (r:UserType) => void}
 export type getAllColors = {getAllColors: () => void}
 export type setLoggedIn = {setLoggedIn: (boolean) => void}
 export type LoggedIn = {LoggedIn: boolean}
+export type TrueOrFalse = {TrueOrFalse: () => void}

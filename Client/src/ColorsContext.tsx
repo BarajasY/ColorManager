@@ -12,7 +12,6 @@ export const ContextProvider = ({children}: ChildrenInterface) => {
     const getRandomColors = async() => {
         const data = await fetch("http://localhost:8080/api/v1/colors/random");
         const JSONData = await data.json()
-        /*         setRandomColors(JSONData); */
         //Most likely using useState lags the operation and return undefined as data.
         const StringData = JSON.stringify(JSONData);
         sessionStorage.setItem("random", StringData)
@@ -23,12 +22,16 @@ export const ContextProvider = ({children}: ChildrenInterface) => {
         const data = await fetch("http://localhost:8080/api/v1/colors");
         const JSONData = await data.json()
         setColors(JSONData);
-        /* const StringData = JSON.stringify(JSONData);
-        sessionStorage.setItem("all", StringData) */
+    }
+
+    function TrueOrFalse() {
+        var subject = localStorage.getItem('loggedin')
+        if(subject === 'true') { return true}
+        else {return false}
     }
 
     return (
-        <Context.Provider value={{getRandomColors, RandomColors, getAllColors, LoggedIn, setLoggedIn, setColors, Colors, User, setUser}}>
+        <Context.Provider value={{getRandomColors, TrueOrFalse, RandomColors, getAllColors, LoggedIn, setLoggedIn, setColors, Colors, User, setUser}}>
             {children}
         </Context.Provider>
     )

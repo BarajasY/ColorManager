@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../ColorsContext';
-import { setLoggedIn, setUser, UserInterface, UserType } from '../../types';
+import { setLoggedIn, setUser, TrueOrFalse, UserInterface, UserType } from '../../types';
 import './Login.css';
 
 const Login = () => {
   const {setLoggedIn} = useContext(Context) as setLoggedIn
   const {setUser} = useContext(Context) as setUser
+  const {TrueOrFalse} = useContext(Context) as TrueOrFalse
 
   const [EmailFocus, setEmailFocus] = useState(false)
   const [PassFocus, setPassFocus] = useState(false)
@@ -63,8 +64,10 @@ const Login = () => {
   }
 
   const LoggingIn = (r:UserType) => {
-      setUser(r)
-      setLoggedIn(true)
+    localStorage.setItem('user', JSON.stringify(r))
+    localStorage.setItem('loggedin', 'true')
+      setUser(JSON.parse(localStorage.getItem('user')!))
+      setLoggedIn(TrueOrFalse());
       navigate('/home')
   }
 

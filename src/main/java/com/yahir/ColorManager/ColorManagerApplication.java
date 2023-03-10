@@ -126,7 +126,12 @@ public class ColorManagerApplication {
 		Users Users = userRepository.findByEmail(request.email());
 		String Password = Users.getPassword();
 		if(Password.equals(request.password())) {
-			return Users;
+			//Basically we create a new object that only has the username and email.
+			//Made this in order to avoid having passwords in localStorage.
+			Users SecuredUser = new Users();
+			SecuredUser.setUsername(Users.getUsername());
+			SecuredUser.setEmail(Users.getEmail());
+			return SecuredUser;
 		} else {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}

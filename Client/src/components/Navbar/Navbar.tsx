@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../../ColorsContext';
-import { LoggedIn, setLoggedIn, UserInterface } from '../../types';
+import { LoggedIn, setLoggedIn, TrueOrFalse, UserInterface } from '../../types';
 import {AiOutlinePlus} from 'react-icons/ai';
 import './Navbar.css'
 
@@ -11,10 +11,13 @@ const Navbar = () => {
   const {LoggedIn} = useContext(Context) as LoggedIn
   const {setLoggedIn} = useContext(Context) as setLoggedIn
   const {User} = useContext(Context) as UserInterface
+  const {TrueOrFalse} = useContext(Context) as TrueOrFalse
   const navigate = useNavigate();
 
   const SignOut = () => {
-    setLoggedIn(false);
+    localStorage.setItem('loggedin', 'false')
+    setLoggedIn(TrueOrFalse());
+    navigate('/home')
   }
 
   return (
