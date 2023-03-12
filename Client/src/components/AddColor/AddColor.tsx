@@ -36,6 +36,7 @@ const AddColor = () => {
       })
       getAllColors()
       navigate('/home')
+      window.location.reload()
     }
 
 

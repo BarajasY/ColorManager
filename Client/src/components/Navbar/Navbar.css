@@ -4,6 +4,7 @@
     height: 70px;
     display: flex;
     background: var(--colorb1);
+    position: sticky;
 }
 
 .navbarLogo {

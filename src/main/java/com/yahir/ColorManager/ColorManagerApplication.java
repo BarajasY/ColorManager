@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +23,8 @@ import com.yahir.ColorManager.Users.UsersRepository;
 
 @SpringBootApplication
 @RestController
-@CrossOrigin
 @RequestMapping("api/v1/colors")
+@CrossOrigin
 public class ColorManagerApplication {
 
 	private final ColorRepository colorRepository;
@@ -99,6 +100,11 @@ public class ColorManagerApplication {
 	@GetMapping("/random")
 	public Optional<Color> homeColors() {
 		return colorRepository.findById(RandomNumberGenerator());
+	}
+
+	@GetMapping("/{id}")
+	public Color GetColorById(@PathVariable String id) {
+		return colorRepository.getColorById(Integer.parseInt(id));
 	}
 
 	// Signup function

@@ -42,3 +42,6 @@ export type getAllColors = {getAllColors: () => void}
 export type setLoggedIn = {setLoggedIn: (boolean) => void}
 export type LoggedIn = {LoggedIn: boolean}
 export type TrueOrFalse = {TrueOrFalse: () => void}
+export type getColorById = {getColorById: (id:number) => void}
+export type ColorById = {ColorById: Color}
+export type setColorById = {setColorById: (Color) => void}
