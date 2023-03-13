@@ -107,6 +107,11 @@ public class ColorManagerApplication {
 		return colorRepository.getColorById(Integer.parseInt(id));
 	}
 
+	@GetMapping("/creator/{creator}")
+	public List<Color> GetColorsByName(@PathVariable String creator) {
+		return colorRepository.getColorByCreator(creator);
+	}
+
 	// Signup function
 	//Receives a post method to add a user to the database.
 	//We verify if the user email already exists in our db via existsByEmail example function.

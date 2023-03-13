@@ -45,3 +45,5 @@ export type TrueOrFalse = {TrueOrFalse: () => void}
 export type getColorById = {getColorById: (id:number) => void}
 export type ColorById = {ColorById: Color}
 export type setColorById = {setColorById: (Color) => void}
+export type getColorsByCreator = {getColorsByCreator: () => void}
+export type ColorsByCreator = {ColorsByCreator: Color[]}
