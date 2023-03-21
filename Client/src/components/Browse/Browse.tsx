@@ -25,7 +25,7 @@ const Browse = () => {
     <div className="browseContainer">
       <div className="content">
         {Colors.map((color) => (
-          <motion.div className="colorsWrapper" onClick={() => navigate(`./${color.id}`)} key={color.id} initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{delay: .05*color.id!}}>
+          <motion.div className="colorsWrapper" onClick={() => navigate(`./${color.id}`)} key={color.id} initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{delay: .01*color.id!}}>
             <h1>{color.creator}</h1>
             <div className="colorsContainer" key={color.id} style={{background:color.color1}}>
                 <div className="colorCircle" style={{background:color.color2}}></div>

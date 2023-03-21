@@ -4,7 +4,7 @@
     height: 70px;
     display: flex;
     background: var(--colorb1);
-    position: sticky;
+    position: block;
 }
 
 .navbarLogo {
@@ -140,4 +140,26 @@
 #Signup:hover {
     background: var(--suplementarycolor);
     color: var(--colorb1);
+}
+
+@media only screen and (max-width:991px) {
+    .navbarLogo h1 {
+        font-size: 20px;
+    }
+
+    #Login {
+        font-size: 15px;
+    }
+
+    .navbarButtons {
+        margin-right: 50px;
+    }
+
+    .navbarButtons button {
+        font-size: 15px;
+    }
+
+    .navbarButtons button a{
+        font-size: 15px;
+    }
 }
