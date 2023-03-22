@@ -1,5 +1,5 @@
 import React, {useEffect, useContext, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Context } from '../../ColorsContext';
 import { ColorById, getColorById, getColorsByCreator, ColorsByCreator } from '../../types';
 import { motion } from 'framer-motion';
@@ -14,6 +14,7 @@ const ColorPage = () => {
   const {ColorsByCreator} = useContext(Context) as ColorsByCreator
 
   const PageId = useParams()
+  const navigate = useNavigate()
   const ToNumber = Number(PageId.id)
   
     useEffect(() => {
@@ -21,6 +22,11 @@ const ColorPage = () => {
         getColorsByCreator()
         setLoading(true)
     }, [])
+
+    const NavigateToSuggestedColor = (id: number):void => {
+      navigate(`../home/${id}`)
+      window.location.reload()
+    }
 
     if(!Loading) {
       return (
@@ -63,7 +69,11 @@ const ColorPage = () => {
             <motion.h1 initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: .5}}>More palettes</motion.h1>
             <section>
               {ColorsByCreator.map((color, i)=> (
-                <motion.div className="creatorExample" style={{background:color.color1}} initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: i*.05}}>
+                <motion.div className="creatorExample" 
+                style={{background:color.color1}} 
+                initial={{opacity: 0}} animate={{opacity: 1}}
+                transition={{delay: i*.05}}
+                onClick={() => NavigateToSuggestedColor(color.id!)}>
                   <div className="creatorExampleCircle" style={{background: color.color2}}></div>
                   <h1 style={{color: color.color3}}>ColorManager</h1>
                 </motion.div>

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '../../ColorsContext';
 import { setLoggedIn, setUser, TrueOrFalse, UserInterface, UserType } from '../../types';
@@ -73,19 +74,36 @@ const Login = () => {
 
   return (
     <div className="loginContainer">
-      <h1>Login to your account</h1>
+      <motion.h1 
+      initial={{opacity: 0, x: 20}} 
+      animate={{opacity: 1, x: 0}}>Login to your account</motion.h1>
       <div className="loginForm">
         <h1 style={{color: 'var(--errorcolor)'}}>{ErrorMessage}</h1>
         <section>
-          <h1 className={EmailFocus ? 'loginFocused' : 'loginNotFocused'}>Email</h1>
-          <input type="email" onClick={() => HandleFocus(1)} onChange={(e) => setEmailValue(e.target.value)}/>
+          <motion.h1 
+          initial={{opacity: 0, x: -20}} 
+          animate={{opacity: 1, x: 0}} 
+          className={EmailFocus ? 'loginFocused' : 'loginNotFocused'}>Email</motion.h1>
+          <motion.input 
+          initial={{opacity: 0, x: -20}} 
+          animate={{opacity: 1, x: 0}} 
+          type="email" onClick={() => HandleFocus(1)} onChange={(e) => setEmailValue(e.target.value)}/>
         </section>
         <section>
-          <h1 className={PassFocus ? 'loginFocused' : 'loginNotFocused'}>Password</h1>
-          <input type="password" onClick={() => HandleFocus(2)} onChange={(e) => setPassValue(e.target.value)}/>
+          <motion.h1 
+          initial={{opacity: 0, x: 20}} 
+          animate={{opacity: 1, x: 0}} 
+          className={PassFocus ? 'loginFocused' : 'loginNotFocused'}>Password</motion.h1>
+          <motion.input 
+          initial={{opacity: 0, x: 20}} 
+          animate={{opacity: 1, x: 0}} 
+          type="password" onClick={() => HandleFocus(2)} onChange={(e) => setPassValue(e.target.value)}/>
         </section>
       </div>
-      <button onClick={() => LoginFunction()}>Submit</button>
+      <motion.button 
+      initial={{opacity: 0, x: 20}} 
+      animate={{opacity: 1, x: 0}} 
+      onClick={() => LoginFunction()}>Submit</motion.button>
     </div>
   )
 }

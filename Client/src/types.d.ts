@@ -47,3 +47,4 @@ export type ColorById = {ColorById: Color}
 export type setColorById = {setColorById: (Color) => void}
 export type getColorsByCreator = {getColorsByCreator: () => void}
 export type ColorsByCreator = {ColorsByCreator: Color[]}
+export type UpdateUser = {UpdateUser: () => void}

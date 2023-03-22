@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import './Signup.css';
 
 const Signup = () => {
-    const [EmailFocus, setEmailFocus] = useState(false)
-    const [PassFocus, setPassFocus] = useState(false)
-    const [UsernameFocus, setUsernameFocus] = useState(false)
     const [CompleteSignup, setCompleteSignup] = useState(false)
     const [EmailValue, setEmailValue] = useState('')
     const [PassValue, setPassValue] = useState('')
@@ -60,22 +58,52 @@ const Signup = () => {
             {CompleteSignup 
             ?
                 <>
-                    <h1 id="CompletedSignupH1">Signup completed!</h1>
-                    <p id="CompletedSignupP">You may now head to <Link to="/login">Login</Link></p>
+                    <motion.h1 
+                    initial={{opacity: 0, x: -40}} 
+                    animate={{opacity:1, x: 0}} 
+                    id="CompletedSignupH1">Signup completed!</motion.h1>
+                    <motion.p 
+                    initial={{opacity: 0, x: 40}} 
+                    animate={{opacity: 1, x: 0}} 
+                    id="CompletedSignupP">You may now head to <Link to="/login">Login</Link></motion.p>
                 </>
             :
             <>
-                <h1 id="signupHeader">Sign up to <span><Link to="/home">ColorManager</Link></span></h1>
+                <motion.h1 
+                initial={{opacity: 0, x:40}} 
+                animate={{opacity: 1, x: 0}} 
+                id="signupHeader">Sign up to <span><Link to="/home">ColorManager</Link></span></motion.h1>
                 <div className="signupForm">
-                    <h1 style={{color: 'var(--errorcolor)'}}>{ErrorMessage}</h1>
-                    <h1 className={UsernameFocus ? 'Focused' : 'NotFocused'}>Username</h1>
-                    <input type="text" onChange={(e) => setUsername(e.target.value)}/>
-                    <h1 className={EmailFocus ? 'Focused' : 'NotFocused'}>Email</h1>
-                    <input type="email" onChange={(e) => setEmailValue(e.target.value)}/>
-                    <h1 className={PassFocus ? 'Focused' : 'NotFocused'}>Password</h1>
-                    <input type="password" onChange={(e) => setPassValue(e.target.value)}/>
+                    <motion.h1 
+                    initial={{opacity: 0, x: -40}} 
+                    animate={{opacity: 1, x: 0}} style={{color: 'var(--errorcolor)'}}>{ErrorMessage}</motion.h1>
+                    <motion.h1 
+                    initial={{opacity: 0, x: -40}} 
+                    animate={{opacity: 1, x:-20}}>Username</motion.h1>
+                    <motion.input 
+                    initial={{opacity: 0, x: -40}} 
+                    animate={{opacity: 1, x: 0}} 
+                    type="text" onChange={(e) => setUsername(e.target.value)}/>
+                    <motion.h1 
+                    initial={{opacity: 0, x: 40}} 
+                    animate={{opacity: 1, x: 0}}>Email</motion.h1>
+                    <motion.input 
+                    initial={{opacity:0, x: 40}} 
+                    animate={{opacity: 1, x:0}} 
+                    type="email" onChange={(e) => setEmailValue(e.target.value)}/>
+                    <motion.h1 
+                    initial={{opacity: 0, x: 40}} 
+                    animate={{opacity: 1, x: 0}}>Password</motion.h1>
+                    <motion.input 
+                    initial={{opacity: 0, x: 40}} 
+                    animate={{opacity: 1, x: 0}} 
+                    type="password" onChange={(e) => setPassValue(e.target.value)}/>
                     <div className="signupButtonContainer">
-                        <button onClick={() => RegisterUser()}>Submit</button>
+                        <motion.button 
+                        initial={{opacity: 0, x: -40}} 
+                        animate={{opacity: 1, x: 0}} 
+                        onClick={() => RegisterUser()}>Submit
+                        </motion.button>
                     </div>
                 </div>
             </>

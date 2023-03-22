@@ -148,6 +148,10 @@
         font-size: 20px;
     }
 
+    .Logout {
+        font-size: 15px;
+    }
+
     #Login a {
         font-size: 20px;
     }
@@ -172,5 +176,9 @@
 
     .navbarLogo {
         width: 60%;
+    }
+
+    .Logout {
+        font-size: 12px;
     }
 }
