@@ -77,12 +77,12 @@ const Login = () => {
       <div className="loginForm">
         <h1 style={{color: 'var(--errorcolor)'}}>{ErrorMessage}</h1>
         <section>
-        <h1 className={EmailFocus ? 'loginFocused' : 'loginNotFocused'}>Email</h1>
-        <input type="email" onClick={() => HandleFocus(1)} onChange={(e) => setEmailValue(e.target.value)}/>
+          <h1 className={EmailFocus ? 'loginFocused' : 'loginNotFocused'}>Email</h1>
+          <input type="email" onClick={() => HandleFocus(1)} onChange={(e) => setEmailValue(e.target.value)}/>
         </section>
         <section>
-        <h1 className={PassFocus ? 'loginFocused' : 'loginNotFocused'}>Password</h1>
-        <input type="password" onClick={() => HandleFocus(2)} onChange={(e) => setPassValue(e.target.value)}/>
+          <h1 className={PassFocus ? 'loginFocused' : 'loginNotFocused'}>Password</h1>
+          <input type="password" onClick={() => HandleFocus(2)} onChange={(e) => setPassValue(e.target.value)}/>
         </section>
       </div>
       <button onClick={() => LoginFunction()}>Submit</button>

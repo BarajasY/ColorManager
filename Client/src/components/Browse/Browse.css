@@ -75,9 +75,33 @@
 @media only screen and (max-width: 992px) {
     .content {
         grid-template-columns: auto auto;
+        width: 100%;
     }
 
     .colorsWrapper h1 {
         font-size: 15px;
     }
+
+    .colorsContainer {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .colorCircle {
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+    }
 }
+
+/* @media only screen and (max-width: 410px) {
+    .colorsWrapper {
+        width: 95%;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .colorsContainer {
+        width: 100%;
+    }
+} */

@@ -5,10 +5,11 @@
     display: flex;
     background: var(--colorb1);
     position: block;
+    justify-content: center;
 }
 
 .navbarLogo {
-    width: 80%;
+    width: 50%;
     display: flex;
     align-items: center;
 }
@@ -34,7 +35,7 @@
 
 .navbarButtons {
     display: flex;
-    width: 20%;
+    width: 30%;
     justify-content: center;
     align-items: center;
 }
@@ -147,8 +148,8 @@
         font-size: 20px;
     }
 
-    #Login {
-        font-size: 15px;
+    #Login a {
+        font-size: 20px;
     }
 
     .navbarButtons {
@@ -161,5 +162,15 @@
 
     .navbarButtons button a{
         font-size: 15px;
+    }
+}
+
+@media only screen and (max-width:700px) {
+    .navbarButtons {
+        width: 40%;
+    }
+
+    .navbarLogo {
+        width: 60%;
     }
 }

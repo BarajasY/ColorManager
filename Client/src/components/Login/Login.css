@@ -60,3 +60,28 @@
     background: var(--suplementarycolor);
     color: white;
 }
+
+@media only screen and (max-width: 650px) {
+    .loginContainer h1 {
+        font-size: 40px;
+        width: 95%;
+    }
+
+    .loginForm {
+        width: 95%;
+    }
+
+    .loginForm h1 {
+        font-size: 20px;
+        width: fit-content;
+    }
+
+    .loginForm section {
+        width: 95%;
+    }
+
+    .loginForm section input {
+        width: 100%;
+        padding: 20px 15px;
+    }
+}
