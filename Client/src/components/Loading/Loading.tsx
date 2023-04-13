@@ -21,7 +21,7 @@ const Loading = () => {
             <motion.h1 
             initial={{y: -100, opacity: 0}} 
             whileInView={{y: 0, opacity: 1}} 
-            transition={{duration: 2}} style={{color: 'var(--suplementarycolor)'}}>Y</motion.h1>
+            transition={{duration: 2}} style={{color: 'var(--suplementarycolor)'}}>C</motion.h1>
         </motion.section>
         <motion.section>
             <motion.h1 initial={{y: 100, opacity: 0}} whileInView={{y: 0, opacity: 1}} transition={{duration: 2}} style={{color: 'var(--colorb12)'}}>M</motion.h1>

@@ -72,10 +72,14 @@
     transform: translateY(-25px);
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
     .content {
         grid-template-columns: auto auto;
         width: 100%;
+    }
+
+    .colorsWrapper {
+        margin: 10px;
     }
 
     .colorsWrapper h1 {
@@ -93,15 +97,3 @@
         margin-right: 10px;
     }
 }
-
-/* @media only screen and (max-width: 410px) {
-    .colorsWrapper {
-        width: 95%;
-        padding: 0px;
-        margin: 0px;
-    }
-
-    .colorsContainer {
-        width: 100%;
-    }
-} */

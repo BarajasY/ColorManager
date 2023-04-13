@@ -4,8 +4,10 @@
     height: 70px;
     display: flex;
     background: var(--colorb1);
-    position: block;
+    position: relative;
     justify-content: center;
+    z-index: 2;
+    box-shadow: 0px 2px 10px black;
 }
 
 .navbarLogo {
@@ -174,8 +176,12 @@
         width: 40%;
     }
 
-    .navbarLogo {
+    .navbarLogo{
         width: 60%;
+    }
+
+    .navbarLogo h1 {
+        font-size: 15px;
     }
 
     .Logout {

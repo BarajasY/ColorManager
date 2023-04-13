@@ -107,3 +107,26 @@
     color: var(--colorb12);
     cursor: pointer;
 }
+
+@media only screen and (max-width: 991px) {
+    .addContainer h1 {
+        font-size: 30px;
+    }
+
+    .addContent {
+        flex-direction: column;
+    }
+
+    .addInputSpace {
+        width: 100%;
+        margin: 0;
+    }
+
+    .addContainer section {
+        flex-direction: column;
+    }
+
+    .addPreview {
+        margin: 20px;
+    }
+}
