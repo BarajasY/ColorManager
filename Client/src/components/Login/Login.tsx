@@ -69,7 +69,7 @@ const Login = () => {
     localStorage.setItem('loggedin', 'true')
       setUser(JSON.parse(localStorage.getItem('user')!))
       setLoggedIn(TrueOrFalse());
-      navigate('/home')
+      navigate('/home/browse')
   }
 
   return (

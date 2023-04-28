@@ -24,7 +24,7 @@ const ColorPage = () => {
     }, [])
 
     const NavigateToSuggestedColor = (id: number):void => {
-      navigate(`../home/${id}`)
+      navigate(`/home/browse/${id}`)
       window.location.reload()
     }
 
